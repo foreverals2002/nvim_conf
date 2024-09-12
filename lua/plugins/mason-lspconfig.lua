@@ -2,7 +2,7 @@ local opts = {
   ensure_installed = {
     "efm",
     "lua_ls",
-    "solidity_ls_nomicfoundation",
+    "solidity_ls",
   },
   automatic_installation = true,
 }

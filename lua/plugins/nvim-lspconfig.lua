@@ -55,7 +55,7 @@ local config = function()
 		},
 	})
 
-	lspconfig.solidity_ls_nomicfoundation.setup({
+	lspconfig.solidity_ls.setup({
 		-- capabilities = capabilities,
 		on_attach = on_attach,
 		filetypes = { "solidity" },
@@ -66,12 +66,15 @@ local config = function()
 	local stylua = require("efmls-configs.formatters.stylua")
 	local flake8 = require("efmls-configs.linters.flake8")
 	local black = require("efmls-configs.formatters.black")
+	local solhint = require("efmls-configs.linters.solhint")
+	local prettier = require("efmls-configs.formatters.prettier")
 
 	-- configure efm server
 	lspconfig.efm.setup({
 		filetypes = {
 			"lua",
 			"python",
+			"solidity",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -85,6 +88,7 @@ local config = function()
 			languages = {
 				lua = { luacheck, stylua },
 				python = { flake8, black },
+				solidity = { solhint, prettier },
 			},
 		},
 	})
